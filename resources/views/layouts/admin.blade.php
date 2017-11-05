@@ -167,9 +167,6 @@
                                 <a href="/admin/categories">All Categories</a>
                             </li>
 
-                            <li>
-                                <a href="/admin/categories/create">Create Category</a>
-                            </li>
 
                         </ul>
                         <!-- /.nav-second-level -->

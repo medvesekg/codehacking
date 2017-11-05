@@ -22,7 +22,7 @@ class AdminPostsController extends Controller
     public function index()
     {
         //
-        $posts = Post::paginate(2);
+        $posts = Post::paginate(5);
 
         return view('admin.posts.index', compact('posts', 'categories'));
     }
@@ -36,7 +36,7 @@ class AdminPostsController extends Controller
     {
         //
 
-        $categories = Category::lists('name','id')->all();
+        $categories = Category::pluck('name','id')->all();
 
         return view('admin.posts.create', compact('categories'));
     }
@@ -66,6 +66,8 @@ class AdminPostsController extends Controller
 
         }
 
+
+
         $user->posts()->create($input);
 
         return redirect('admin/posts');
@@ -94,7 +96,7 @@ class AdminPostsController extends Controller
         //
         $post = Post::findOrFail($id);
 
-        $categories = Category::lists('name', 'id')->all();
+        $categories = Category::pluck('name', 'id')->all();
 
         return view('admin.posts.edit',compact('post', 'categories'));
     }
